@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block districts_active %}
+active
+{% endblock districts_active %}
+
+{% block title%} - {{ district.district }} {% endblock title %}%
+
+{% block page_content %}
+    <script src="{% static 'config.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'district_detail.js' %}"></script>
+    <div class = "pagestart" style="margin: 20px 10px 10px 20px">
+        <h1><b>{{district.district}}</b></h1>
+        <hr>
+        <table class="container" style="margin-bottom:40px; margin-top:40px;">
+	        <thead>
+		        <tr>
+			        <th style="color: rgb(255, 32, 32)">Confirmed</th>
+			        <th style="color: rgb(46, 186, 252)">Active</th>
+			        <th style="color: rgb(6, 177, 6)">Recovered</th>
+			        <th style="color: black">Deceased</th>
+		        </tr>
+            </thead>
+            <tbody>
+                <tr>
+			        <td style="color: rgb(255, 32, 32)">351</td>
+			        <td style="color: rgb(46, 186, 252)">175</td>
+			        <td style="color: rgb(6, 177, 6)">164</td>
+			        <td style="color: black">10</td>
+		        </tr>
+	        </tbody>
+        </table>
+
+        <h2>Map</h2>
+        <center>
+        <iframe width="600" id="mapframe" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> 
+        
+        <br>
+        <br>
+        <a href= {% url 'surveillance_index' %}><button type="button" class="btn btn-info btn-lg">Face Mask Analysis</button></a>
+        <a href= {% url 'social_distancing_index' %}><button type="button" class="btn btn-warning btn-lg">Social Distancing Analysis</button></a>
+        </center>
+    </div>
+
+    <style>
+    * {
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
+
+
+    </style>
+    <script src="{% static 'map_render.js' %}"></script>
+    <br>
+    
+{% endblock page_content %} 

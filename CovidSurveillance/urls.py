@@ -18,5 +18,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('districts/', include('home.urls')),
+    path('home/', include('home.urls')),
+    path('', include('home.urls')),
+    path('surveillance/faceMaskMonitor/', include('face_mask_detect.urls')),
+    path('districts/', include('districts.urls')),
+    path('surveillance/socialDistanceMonitor/', include('social_distance_monitor.urls')),
 ]
